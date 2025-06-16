@@ -1,0 +1,16 @@
+# Core FastAPI Framework
+fastapi
+uvicorn
+
+# Machine Learning & Data
+scikit-learn
+joblib
+sentence-transformers
+torch
+geopy
+
+# Pydantic is a dependency of FastAPI, but we list it for clarity
+pydantic
+
+# Good practice for managing environment variables
+python-dotenv
