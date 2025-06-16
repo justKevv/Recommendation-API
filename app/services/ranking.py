@@ -94,6 +94,9 @@ def  get_ranked_internships(request: RecommendationRequest) -> list[int]:
     final_ranked_list = []
     user_coords = geo_coords(request.preferred_location)
 
+    print(user_coords, request.preferred_location)
+
+
     for internship in ranked_by_similarity:
         final_score = internship['similarity_score']
 
@@ -101,10 +104,10 @@ def  get_ranked_internships(request: RecommendationRequest) -> list[int]:
             internship_coords = geo_coords(internship['location'])
             if internship_coords:
                 distance_km = geodesic(user_coords, internship_coords).kilometers
-                if distance_km == 0:
-                    final_score += 1.0
+                if distance_km < 1:
+                    final_score += 2.0
                 elif distance_km < 150:
-                    final_score += 0.5
+                    final_score += 0.75
 
         internship['final_score'] = final_score
         final_ranked_list.append(internship)
@@ -112,4 +115,7 @@ def  get_ranked_internships(request: RecommendationRequest) -> list[int]:
     final_ranked_list.sort(key=lambda x: x['final_score'], reverse=True)
 
     final_ids = [item['id'] for item in final_ranked_list]
+
+    print(final_ranked_list)
+
     return final_ids
