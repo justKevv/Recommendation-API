@@ -1,6 +1,7 @@
 # Core FastAPI Framework
 fastapi
 uvicorn
+requests
 
 # Machine Learning & Data
 scikit-learn
