@@ -1,10 +1,10 @@
 {
-  "functions": {
-    "api/index.py": {
-      "maxDuration": 60,
-      "memory": 3008
+  "builds": [
+    {
+      "src": "app/main.py",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/(.*)",
