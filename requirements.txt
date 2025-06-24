@@ -9,7 +9,7 @@ joblib
 sentence-transformers
 torch
 geopy
-
+huggingface-hub
 # Pydantic is a dependency of FastAPI, but we list it for clarity
 pydantic
 
